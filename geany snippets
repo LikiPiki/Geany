@@ -48,20 +48,25 @@ switch=switch (%cursor%)%brace_open%case %cursor%:\n\t\t%cursor%\n\t\tbreak;\n\t
 [C++]
 if=if (%cursor%)%block_cursor%
 else=else%block_cursor%
-for=for (int i = 0; i < %cursor%; i++)%brace_open%\n%brace_close%
+for=for (int i = %cursor%; i < %cursor%; i++)%brace_open%%cursor%\n%brace_close%
 while=while (%cursor%)%block_cursor%
 do=do\n{\n\t%cursor%\n} while (%cursor%)\n%cursor%
 switch=switch (%cursor%)%brace_open%case %cursor%:\n\t\t%cursor%\n\t\tbreak;\n\tdefault:\n\t\t%cursor%\n%brace_close%%cursor%
 try=try%block%\ncatch (%cursor%)%block_cursor%
-forj=for (int j = 0; j < %cursor%; j++)%brace_open%\n%brace_close%
+forj=for (int j = %cursor%; j < %cursor%; j++)%brace_open%%cursor%\n%brace_close%
 void=void %cursor%()%brace_open%\n%brace_close%
 main=int main() %brace_open%%cursor%\nreturn 0;\n%brace_close%
 func=%cursor%()%brace_open%%cursor%\nreturn 0;\n%brace_close%
-inc=#include <%cursor%>
+inc=#include <%cursor%>%cursor%
 std=using namespace std;\n
-cout=cout << %cursor% << endl;
-cin=cin >> %cursor%;
+cout=cout << %cursor% << endl;%cursor%
+cin=cin >> %cursor%;%cursor%
 
+[Pascal]
+begin=begin\n%cursor%\nend;
+for=for i := %cursor% to %cursor% do \n begin\n\t%cursor%\n end;
+forj=for j := %cursor% to %cursor% do \n begin\n\t%cursor%\n end;
+if=if %cursor% then \n begin \n%cursor%\nend;
 [Java]
 if=if (%cursor%)%block_cursor%
 else=else%block_cursor%
